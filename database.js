@@ -32,12 +32,6 @@ const dbOperations = {
             callback(err, rows);
         });
     },
-    insertUser: function (name, email, password, role, callback) {
-        const sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
-        db.run(sql, [name, email, password, role], function (err) {
-            callback(err, this.lastID);
-        });
-    },
     updateUserEmail: function (id, email, callback) {
         db.run("UPDATE users SET email = ? WHERE id = ?", [email, id], (err) => {
             callback(err);
